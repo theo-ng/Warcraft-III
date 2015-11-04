@@ -12,7 +12,11 @@ class Unit
   end
 
   def attack!(enemy)
+    raise InvalidAttackError if enemy.health_points < 1 || self.health_points < 1
     enemy.damage(self.attack_power)
   end
 
+  def dead?
+    @health_points <= 0 ? true : false
+  end
 end

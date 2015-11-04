@@ -1,0 +1,2 @@
+class InvalidAttackError < StandardError
+end
