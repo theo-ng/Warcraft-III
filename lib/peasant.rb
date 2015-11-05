@@ -1,8 +1,9 @@
 class Peasant < Unit
 
+  COST = {gold: 90, food: 5}
+
   def initialize
-    @health_points = 35
-    @attack_power = 0
+    super(35,0)
   end
 
 end

@@ -10,26 +10,26 @@ class Barracks
   end
 
   def can_train_footman?
-    self.gold >= 135 && self.food >= 2
+    gold >= Footman::COST[:gold] && food >= Footman::COST[:food]
   end
 
   def train_footman
     if can_train_footman?
-      self.gold -= 135
-      self.food -= 2
-      ready_for_action = Footman.new
+      self.gold -= Footman::COST[:gold]
+      self.food -= Footman::COST[:food]
+      Footman.new
     end
   end
 
   def can_train_peasant?
-    self.gold >= 90 && self.food >= 5
+    gold >= Peasant::COST[:gold] && food >= Peasant::COST[:food]
   end
 
   def train_peasant
     if can_train_peasant?
-      self.gold -= 90
-      self.food -= 5
-      ready_to_work = Peasant.new
+      self.gold -= Peasant::COST[:gold]
+      self.food -= Peasant::COST[:food]
+      Peasant.new
     end
   end
 
@@ -39,14 +39,14 @@ class Barracks
 
   def build_siege_engine
     if can_build_siege_engine?
-      self.gold -= 200
-      self.lumber -= 60
-      self.food -= 3
-      siege = SiegeEngine.new
+      self.gold -= SiegeEngine::COST[:gold]
+      self.lumber -= SiegeEngine::COST[:lumber]
+      self.food -= SiegeEngine::COST[:food]
+      SiegeEngine.new
     end
   end
 
   def can_build_siege_engine?
-    self.gold >= 200 && self.lumber >= 60 && self.food >= 3
+    gold >= SiegeEngine::COST[:gold] && lumber >= SiegeEngine::COST[:lumber] && food >= SiegeEngine::COST[:food ]
   end
 end

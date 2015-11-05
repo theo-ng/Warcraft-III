@@ -6,13 +6,13 @@ require_relative 'spec_helper'
 describe Barracks do
 
   before :each do
-    @rax = Barracks.new
+    @barracks = Barracks.new
   end
 
   describe "#initialize" do
 
     it "starts off with 1000 gold resources" do
-      expect(@rax.lumber).to eql(100)
+      expect(@barracks.lumber).to eql(100)
     end
 
   end

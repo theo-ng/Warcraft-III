@@ -9,7 +9,6 @@ describe Barracks do
 
   before :each do
     @barracks = Barracks.new
-    @footman = Footman.new
   end
 
   describe "#initialize" do
@@ -23,7 +22,8 @@ describe Barracks do
   describe "#damage" do
     
     it "should take half the damage from Footman" do
-      @footman.attack!(@barracks)
+      footman = Footman.new
+      footman.attack!(@barracks)
       expect(@barracks.health_points).to eq(495) # footman ap = 10
     end
 
